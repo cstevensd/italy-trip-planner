@@ -24,12 +24,12 @@ export default defineConfig(({ mode }) => {
               type: 'image/png',
             },
             {
-              src: 'pwa-512x512.png',
+              src: 'italy.png',
               sizes: '512x512',
               type: 'image/png',
             },
             {
-              src: 'pwa-512x512.png',
+              src: 'italy.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any maskable', // For adaptive icons
