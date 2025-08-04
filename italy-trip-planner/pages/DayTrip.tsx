@@ -26,6 +26,8 @@ const CopyButton: React.FC<{ textToCopy: string; label: string }> = ({ textToCop
 };
 
 const DayTrip: React.FC = () => {
+    const cancellationLink = "https://l4ab.adj.st/bookings/S0QATK0D09T0GCIN6WKTQ1LK9FT9REW0/details?adj_t=6oimkb3_lut0srj&adj_deep_link=gyg%3A%2F%2Fbookings%2FS0QATK0D09T0GCIN6WKTQ1LK9FT9REW0%2Fdetails%3Fvisitor_id%3D31F21BD46A634DC7915A2B7533D3E834%26utm_source%3Dgetyourguide%26utm_medium%3Demail_transactional%26utm_campaign%3Dshopping_cart_confirmation_v2%26utm_content%3Dbooking_summary_manage_booking_move_v3&adj_fallback=https%3A%2F%2Fwww.getyourguide.com%2Fbooking%2FS0QATK0D09T0GCIN6WKTQ1LK9FT9REW0%3Fpartner_id%3DHCIAOO8%26visitor_id%3D31F21BD46A634DC7915A2B7533D3E834%26utm_source%3Dgetyourguide%26utm_medium%3Demail_transactional%26utm_campaign%3Dshopping_cart_confirmation_v2%26utm_content%3Dbooking_summary_manage_booking_move_v3&adj_redirect=https%3A%2F%2Fwww.getyourguide.com%2Fbooking%2FS0QATK0D09T0GCIN6WKTQ1LK9FT9REW0%3Fpartner_id%3DHCIAOO8%26visitor_id%3D31F21BD46A634DC7915A2B7533D3E834%26utm_source%3Dgetyourguide%26utm_medium%3Demail_transactional%26utm_campaign%3Dshopping_cart_confirmation_v2%26utm_content%3Dbooking_summary_manage_booking_move_v3&visitor_id=31F21BD46A634DC7915A2B7533D3E834&utm_source=getyourguide&utm_medium=email_transactional&utm_campaign=shopping_cart_confirmation_v2&utm_content=booking_summary_manage_booking_move_v3";
+
   return (
     <div className="max-w-4xl mx-auto animate-fade-in">
       <div className="flex items-center mb-4">
@@ -33,6 +35,25 @@ const DayTrip: React.FC = () => {
         <div className='ml-4'>
             <h1 className="text-4xl font-extrabold text-brand-primary">{dayTripData.title}</h1>
             <p className="text-brand-text-muted">{dayTripData.date} &bull; {dayTripData.duration}</p>
+        </div>
+      </div>
+
+      <div className="my-6 p-4 bg-yellow-100/70 border-l-4 border-yellow-500 text-yellow-900 rounded-r-lg">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <Icon name="alert-triangle" className="h-5 w-5 text-yellow-500" aria-hidden="true" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-bold">Cancellation Policy</h3>
+            <div className="mt-2 text-sm">
+              <p>
+                This tour is cancellable for a full refund before 7:30 AM on August 11.
+                <a href={cancellationLink} target="_blank" rel="noopener noreferrer" className="font-medium underline hover:text-yellow-800 ml-2">
+                  Manage Booking
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       
