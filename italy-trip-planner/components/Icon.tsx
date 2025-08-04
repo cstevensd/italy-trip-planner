@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -11,15 +12,15 @@ export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
       return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
           <defs>
-            <clipPath id="clip-rounded-flag">
-              <rect x="2" y="4" width="20" height="16" rx="2"/>
-            </clipPath>
+            <radialGradient id="glossy-flag-icon" cx="0.4" cy="0.3" r="0.6" fx="0.35" fy="0.25">
+              <stop offset="0%" style={{stopColor: 'rgb(255,255,255)', stopOpacity: 0.4}} />
+              <stop offset="100%" style={{stopColor: 'rgb(255,255,255)', stopOpacity: 0}} />
+            </radialGradient>
           </defs>
-          <g clip-path="url(#clip-rounded-flag)">
-            <rect x="2" y="4" width="20" height="16" fill="#FFFFFF"/>
-            <rect x="2" y="4" width="6.67" height="16" fill="#009246"/>
-            <rect x="15.33" y="4" width="6.67" height="16" fill="#CE2B37"/>
-          </g>
+          <circle cx="12" cy="12" r="12" fill="#fff"/>
+          <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12V0z" fill="#009246"/>
+          <path d="M12 24a12 12 0 0 0 12-12A12 12 0 0 0 12 0v24z" fill="#ce2b37"/>
+          <circle cx="12" cy="12" r="12" fill="url(#glossy-flag-icon)"/>
         </svg>
       );
     case 'calendar':
@@ -182,6 +183,16 @@ export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
       return (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}><path d="M8 6h8c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2z"></path><path d="M10 2v4"></path><path d="M14 2v4"></path></svg>
       );
+    case 'file-text':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+      );
     case 'download':
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -196,6 +207,28 @@ export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                 <line x1="12" y1="9" x2="12" y2="13"></line>
                 <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+        );
+    case 'headphones':
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+                <path d="M12 1a9 9 0 0 0-9 9v7a2 2 0 0 0 2 2h4v-8H5v-1a7 7 0 0 1 14 0v1h-4v8h4a2 2 0 0 0 2-2v-7a9 9 0 0 0-9-9z"></path>
+            </svg>
+        );
+    case 'volume-2':
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+        );
+    case 'info':
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
             </svg>
         );
     default:

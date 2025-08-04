@@ -1,4 +1,6 @@
 
+
+
 import React, { useState } from 'react';
 import { dayTripData } from '../data/dayTripData';
 import { Icon } from '../components/Icon';
@@ -77,6 +79,23 @@ const DayTrip: React.FC = () => {
                                     <span className="text-sm font-semibold text-brand-secondary bg-brand-accent-light/50 px-2 py-1 rounded-md">{item.duration}</span>
                                </div>
                                 <p className="text-brand-text-muted mt-1">{item.details}</p>
+                                {item.departureInfo && (
+                                    <div className="flex items-start gap-2 mt-3 p-2 bg-blue-50 border border-blue-200/50 rounded-lg text-sm text-blue-800">
+                                        <Icon name="info" className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-500"/>
+                                        <span>{item.departureInfo}</span>
+                                    </div>
+                                )}
+                                {item.mapUrl && (
+                                    <a 
+                                        href={item.mapUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mt-3 inline-flex items-center bg-gray-100 text-brand-text-muted font-semibold px-3 py-1.5 rounded-lg hover:bg-brand-border transition-colors text-sm"
+                                    >
+                                        <Icon name="map-pin" className="w-4 h-4 mr-2" />
+                                        View Location
+                                    </a>
+                                )}
                             </div>
                         </div>
                     ))}

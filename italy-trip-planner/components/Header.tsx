@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Icon } from './Icon';
@@ -29,8 +28,6 @@ const Header: React.FC = () => {
         { path: '/schedule', name: 'Schedule' },
         { path: '/bookings', name: 'Bookings' },
         { path: '/daytrip', name: 'Day Trip' },
-        { path: '/trains', name: 'Trains' },
-        { path: '/todo', name: 'To-Do' },
         { path: '/destinations', name: 'Guides' },
         { path: '/phrases', name: 'Phrases' },
         { path: '/currency', name: 'Converter' },

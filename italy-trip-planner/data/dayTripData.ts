@@ -1,4 +1,5 @@
 
+
 import { DayTripDetails } from '../types';
 
 export const dayTripData: DayTripDetails = {
@@ -42,18 +43,21 @@ export const dayTripData: DayTripDetails = {
             transport: "Train", 
             duration: "1 hour", 
             activity: "Travel to Pisa", 
-            details: "Depart from Florence's Santa Maria Novella station."
+            details: "Depart from Florence's Santa Maria Novella station.",
+            departureInfo: "Regional trains depart roughly every 30-60 minutes."
         },
         { 
             duration: "75 mins", 
             activity: "Tower of Pisa", 
-            details: "Free time for photos, visiting the Piazza dei Miracoli, and sightseeing."
+            details: "Free time for photos, visiting the Piazza dei Miracoli, and sightseeing.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Piazza+dei+Miracoli"
         },
         { 
             transport: "Train", 
             duration: "75 mins", 
             activity: "Travel to Liguria", 
-            details: "Journey towards the Cinque Terre coastline."
+            details: "Journey towards the Cinque Terre coastline.",
+            departureInfo: "Connects via La Spezia. Trains on this line run frequently."
         },
         {
             duration: "15 mins",
@@ -64,40 +68,47 @@ export const dayTripData: DayTripDetails = {
             transport: "Train", 
             duration: "7 mins", 
             activity: "Travel to Riomaggiore", 
-            details: "A short, panoramic train ride to the first village."
+            details: "A short, panoramic train ride to the first village.",
+            departureInfo: "The Cinque Terre Express runs approx. every 15-20 minutes in peak season."
         },
         { 
             duration: "1 hour", 
             activity: "Riomaggiore", 
-            details: "Time for photos, visiting the village, and lunch."
+            details: "Time for photos, visiting the village, and lunch.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Riomaggiore"
         },
         { 
             transport: "Train", 
             duration: "9 mins", 
             activity: "Travel to Vernazza", 
-            details: "Continue the panoramic train journey."
+            details: "Continue the panoramic train journey.",
+            departureInfo: "The Cinque Terre Express runs approx. every 15-20 minutes in peak season."
         },
         { 
             duration: "1 hour", 
             activity: "Vernazza", 
-            details: "Free time for photos, visiting the harbor, and sightseeing."
+            details: "Free time for photos, visiting the harbor, and sightseeing.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Vernazza"
         },
         { 
             transport: "Train", 
             duration: "7 mins", 
             activity: "Travel to Manarola", 
-            details: "Another scenic train ride along the coast."
+            details: "Another scenic train ride along the coast.",
+            departureInfo: "The Cinque Terre Express runs approx. every 15-20 minutes in peak season."
         },
         { 
             duration: "1 hour", 
             activity: "Manarola", 
-            details: "Break time, photos, and enjoying the scenic views."
+            details: "Break time, photos, and enjoying the scenic views.",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=Manarola"
         },
         {
             transport: "Train",
             duration: "10 mins",
             activity: "Return to Ligurian hub",
-            details: "Begin the journey back towards Florence."
+            details: "Begin the journey back towards Florence.",
+            departureInfo: "The Cinque Terre Express runs approx. every 15-20 minutes in peak season."
         },
         {
             duration: "25 mins",
@@ -108,7 +119,8 @@ export const dayTripData: DayTripDetails = {
             transport: "Train", 
             duration: "~2h 25m", 
             activity: "Travel back to Florence", 
-            details: "Final leg of the journey returning to the starting point."
+            details: "Final leg of the journey returning to the starting point.",
+            departureInfo: "Check departure boards for the next available train to Firenze S.M.N."
         },
     ]
 };

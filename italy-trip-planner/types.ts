@@ -1,14 +1,16 @@
 
 
+
+
 export interface ScheduleItem {
   date: string;
   activity: string;
   notes: string;
   address?: string;
-  link?: {
+  links?: {
     url:string;
     text: string;
-  };
+  }[];
 }
 
 export interface Flight {
@@ -98,15 +100,6 @@ export interface CuratedGuideContent {
   sections: GuideSection[];
 }
 
-export interface TrainTime {
-  trainNumber: string;
-  trainType: 'Frecciarossa' | 'Italo' | 'Regionale' | 'Intercity';
-  departureTime: string;
-  arrivalTime: string;
-  duration: string;
-  price: number;
-}
-
 export interface Phrase {
   italian: string;
   english: string;
@@ -118,6 +111,7 @@ export interface PhraseCategory {
 }
 
 export interface TrainBooking {
+  title: string;
   passenger: string;
   departure: string;
   arrival: string;
@@ -156,8 +150,20 @@ export interface DayTripDetails {
     activity: string;
     details: string;
     transport?: 'Train' | 'Walk';
+    mapUrl?: string;
+    departureInfo?: string;
   }[];
 }
 
-
 export type Currency = 'USD' | 'CAD' | 'EUR';
+
+export type TrainType = 'Frecciarossa' | 'Italo' | 'Intercity' | 'Regionale';
+
+export interface TrainTime {
+  trainNumber: string;
+  trainType: TrainType;
+  departureTime: string;
+  arrivalTime: string;
+  duration: string;
+  price: number;
+}

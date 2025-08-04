@@ -1,10 +1,14 @@
 
+
+
+
+
 import React from 'react';
-import { schedule, flights, accommodations, trainBookings, todoList } from '../data/tripData';
+import { schedule, flights, accommodations, trainBookings } from '../data/tripData';
 import { dayTripData } from '../data/dayTripData';
 import { curatedGuides } from '../data/guidesData';
 import { italianPhrases } from '../data/phrasesData';
-import { CuratedGuideContent, Flight, Accommodation, TrainBooking, TodoItemType, PhraseCategory, GuideListItem, GuideSection } from '../types';
+import { CuratedGuideContent, Flight, Accommodation, TrainBooking, PhraseCategory, GuideListItem, GuideSection } from '../types';
 
 // --- STYLES ---
 const styles: { [key: string]: React.CSSProperties } = {
@@ -45,6 +49,15 @@ const PrintableSchedule = () => (
                 <p style={{...styles.p, fontWeight: 'bold', color: '#003366'}}>{item.date} - {item.activity}</p>
                 <p style={styles.p}>{item.notes}</p>
                 {item.address && <p style={{...styles.p, fontSize: '9pt', color: '#757575'}}>Address: {item.address}</p>}
+                {item.links && item.links.length > 0 && (
+                  <div style={{marginTop: '8px'}}>
+                    {item.links.map(link => (
+                      <p key={link.text} style={{...styles.p, fontSize: '9pt', margin: '0 0 4px 15px'}}>
+                        &bull; {link.text}
+                      </p>
+                    ))}
+                  </div>
+                )}
             </div>
         ))}
     </Section>
@@ -87,7 +100,7 @@ const PrintableAccommodation = ({ accom }: { accom: Accommodation }) => (
 
 const PrintableTrain = ({ booking }: { booking: TrainBooking }) => (
     <div style={styles.card}>
-        <h3 style={{...styles.h3, color: '#003366'}}>{booking.departure.split(',')[0]} to {booking.arrival.split(',')[0]}</h3>
+        <h3 style={{...styles.h3, color: '#003366'}}>{booking.title}</h3>
         <p style={styles.p}>Passenger: {booking.passenger}</p>
         <p style={styles.p}>Departure: {booking.departure}</p>
         <p style={styles.p}>Arrival: {booking.arrival}</p>
@@ -131,30 +144,12 @@ const PrintableDayTrip = () => (
             {dayTripData.itinerary.map((item, i) => (
                 <div key={i} style={{padding: '8px 0', borderBottom: '1px solid #E0E0E0'}}>
                     <p style={styles.p}><strong>{item.activity}</strong> ({item.duration}) - {item.details}</p>
+                    {item.departureInfo && <p style={{...styles.p, fontSize: '9pt', color: '#556B2F'}}>Note: {item.departureInfo}</p>}
                 </div>
             ))}
         </div>
     </Section>
 );
-
-const PrintableTodoList = () => {
-    const incomplete = todoList.filter(t => !t.completed);
-    const completed = todoList.filter(t => t.completed);
-    return (
-        <Section>
-            <h1 style={styles.h1}>To-Do List</h1>
-            <h2 style={styles.h2}>Pending Tasks</h2>
-            {incomplete.length > 0 ? incomplete.map(item => (
-                <p key={item.id} style={styles.p}>[  ] {item.task} ({item.assignees.join(', ')})</p>
-            )) : <p>All tasks complete!</p>}
-            
-            <h2 style={styles.h2}>Completed Tasks</h2>
-            {completed.map(item => (
-                <p key={item.id} style={{...styles.p, color: '#757575', textDecoration: 'line-through'}}>[X] {item.task}</p>
-            ))}
-        </Section>
-    );
-};
 
 const PrintableGuide = ({ guide }: { guide: CuratedGuideContent}) => (
     <Section>
@@ -168,7 +163,6 @@ const PrintableGuide = ({ guide }: { guide: CuratedGuideContent}) => (
                     <div key={j} style={{paddingLeft: '16px', borderLeft: '2px solid #E0E0E0', marginBottom: '8px'}}>
                         <p style={{...styles.p, fontWeight: 'bold'}}>{item.name}</p>
                         {item.description && <p style={{...styles.p, fontSize: '9pt'}}>{item.description}</p>}
-                        {item.address && <p style={{...styles.p, fontSize: '9pt', color: '#757575'}}>Address: {item.address}</p>}
                     </div>
                  ))
                 }
@@ -211,8 +205,6 @@ const PrintableContent: React.FC = () => {
             <div style={styles.page}><PrintableBookings /></div>
             <PageBreak />
             <div style={styles.page}><PrintableDayTrip /></div>
-            <PageBreak />
-            <div style={styles.page}><PrintableTodoList /></div>
             
             {guidesToPrint.map(city => {
                 const guide = curatedGuides[city];

@@ -152,7 +152,7 @@ const TrainBookingCard: React.FC<{ booking: TrainBooking }> = ({ booking }) => {
 
     return (
         <div className="bg-brand-surface rounded-xl p-6 shadow-subtle">
-            <h3 className="text-xl font-bold text-brand-text-main mb-4">{booking.passenger}</h3>
+            <h3 className="text-xl font-bold text-brand-text-main mb-4">{booking.title}</h3>
 
             <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center border-b border-brand-border pb-4 mb-4">
                 <div className="flex items-center gap-3">
@@ -182,6 +182,7 @@ const TrainBookingCard: React.FC<{ booking: TrainBooking }> = ({ booking }) => {
                         <div><span className="font-semibold text-brand-text-main">Coach:</span> {booking.coach}</div>
                         <div className="col-span-3 sm:col-span-1"><span className="font-semibold text-brand-text-main">Seats:</span> {booking.seats}</div>
                     </div>
+                    <p className="text-sm"><span className="font-semibold text-brand-text-main">Passenger(s):</span> {booking.passenger}</p>
                 </div>
                 <div className="space-y-2">
                     <h4 className="font-bold text-brand-secondary">Confirmation</h4>
