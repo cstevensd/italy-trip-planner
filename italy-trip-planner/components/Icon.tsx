@@ -12,15 +12,15 @@ export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
       return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
           <defs>
-            <radialGradient id="glossy-flag-icon" cx="0.4" cy="0.3" r="0.6" fx="0.35" fy="0.25">
-              <stop offset="0%" style={{stopColor: 'rgb(255,255,255)', stopOpacity: 0.4}} />
-              <stop offset="100%" style={{stopColor: 'rgb(255,255,255)', stopOpacity: 0}} />
-            </radialGradient>
+            <clipPath id="clip-rounded-flag">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+            </clipPath>
           </defs>
-          <circle cx="12" cy="12" r="12" fill="#fff"/>
-          <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12V0z" fill="#009246"/>
-          <path d="M12 24a12 12 0 0 0 12-12A12 12 0 0 0 12 0v24z" fill="#ce2b37"/>
-          <circle cx="12" cy="12" r="12" fill="url(#glossy-flag-icon)"/>
+          <g clip-path="url(#clip-rounded-flag)">
+            <rect x="2" y="4" width="20" height="16" fill="#FFFFFF"/>
+            <rect x="2" y="4" width="6.67" height="16" fill="#009246"/>
+            <rect x="15.33" y="4" width="6.67" height="16" fill="#CE2B37"/>
+          </g>
         </svg>
       );
     case 'calendar':
