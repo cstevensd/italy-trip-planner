@@ -10,6 +10,7 @@ import Destinations from './pages/Destinations';
 import Trains from './pages/Trains';
 import Phrases from './pages/Phrases';
 import CurrencyConverter from './pages/CurrencyConverter';
+import DayTrip from './pages/DayTrip';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/bookings" element={<Bookings />} />
           <Route path="/trains" element={<Trains />} />
+          <Route path="/daytrip" element={<DayTrip />} />
           <Route path="/todo" element={<TodoList />} />
           <Route path="/destinations" element={<Destinations />} />
           <Route path="/phrases" element={<Phrases />} />

@@ -61,6 +61,15 @@ export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle>
             </svg>
         );
+    case 'users':
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}>
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+        );
     case 'menu':
         return (
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" {...props}>
@@ -115,6 +124,13 @@ export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
                 <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
         );
+    case 'pin-code':
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}>
+                <path d="M12 10v4"></path><path d="M15.04 15.11L14 14"></path><path d="M8.96 15.11L10 14"></path><path d="M15.04 8.89L14 10"></path><path d="M8.96 8.89L10 10"></path>
+                <path d="M18 12.16V10a6 6 0 1 0-12 0v2.16"></path><path d="M7 19h10"></path><rect x="5" y="15" width="14" height="4" rx="2"></rect>
+            </svg>
+        );
     case 'mail':
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}>
@@ -139,6 +155,33 @@ export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
                 <path d="M21 11.8v2a4 4 0 0 1-4 4H5"/>
             </svg>
         );
+    case 'sun-wave':
+        return (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}>
+              <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"></path>
+              <path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path>
+              <path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path>
+              <path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path>
+              <path d="M3 18s2.67-1.42 5.33-1.42 5.33 1.42 5.33 1.42" stroke-width="1.5"></path>
+              <path d="M15.33 18s2.67-1.42 5.33-1.42" stroke-width="1.5"></path>
+            </svg>
+        );
+    case 'shoes':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}><path d="M7 17a2 2 0 0 1-2-2V9a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6a2 2 0 0 1-2 2H7Z"></path><path d="M12 17v-3.5"></path></svg>
+      );
+    case 'swimsuit':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}><path d="M2 13.5A3.5 3.5 0 0 1 5.5 10H11a1 1 0 0 0 1-1V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h4.5a3.5 3.5 0 0 1-3.5 3.5H19a1 1 0 0 0-1 1v4a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-4a1 1 0 0 0-1-1H5.5A3.5 3.5 0 0 1 2 13.5Z"></path></svg>
+      );
+    case 'water-bottle':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}><path d="M15 2H9C7.34 2 6 3.34 6 5v1H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-1V5c0-1.66-1.34-3-3-3zm0 1v2H9V3h6zM5 8h14v10H5V8z"></path><path d="M8 12h8"></path></svg>
+      );
+    case 'luggage':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}><path d="M8 6h8c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2z"></path><path d="M10 2v4"></path><path d="M14 2v4"></path></svg>
+      );
     default:
       return null;
   }

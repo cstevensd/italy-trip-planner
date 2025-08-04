@@ -24,24 +24,51 @@ export const schedule: ScheduleItem[] = [
       text: 'View Rome Airbnb Booking'
     }
   },
-  { date: 'Aug 9', activity: 'Rome Exploration', notes: 'Places to visit: Galleria Borghese, Colosseum, Vatican.' },
   { 
     date: 'Aug 10', 
-    activity: 'Private Mosaic Lesson & Rome Exploration', 
+    activity: 'Colosseum, Roman Forum & Palatine Hill Tour', 
+    notes: "Reserved for 4:00 PM (entry may be +/- 90 mins, check tickets for final time). Includes audioguide for 3 adults. Booking ID: 4348267058. Meet at 'Sperone Valadier' near Arch of Constantine 10 mins before entry. IMPORTANT: This is a booking confirmation, actual tickets will be emailed separately. Booking cannot be canceled or modified.",
+    address: 'Sperone Valadier, near Arch of Constantine, Colosseum, Rome',
+    link: {
+      url: 'https://www.google.com/maps/search/?api=1&query=Sperone+Valadier+Colosseo+Roma',
+      text: 'View Meeting Point'
+    }
+  },
+  { 
+    date: 'Aug 10', 
+    activity: 'Decision Time: Pisa/Cinque Terre Tour', 
+    notes: 'Final reminder to decide on the day trip. Free cancellation ends Aug 11 at 7:30 AM. Please make a final decision by 8 PM tonight.',
+    link: {
+      url: 'https://l4ab.adj.st/bookings/S0QATK0D09T0GCIN6WKTQ1LK9FT9REW0/details?adj_t=6oimkb3_lut0srj&adj_deep_link=gyg%3A%2F%2Fbookings%2FS0QATK0D09T0GCIN6WKTQ1LK9FT9REW0%2Fdetails%3Fvisitor_id%3D31F21BD46A634DC7915A2B7533D3E834%26utm_source%3Dgetyourguide%26utm_medium%3Demail_transactional%26utm_campaign%3Dshopping_cart_confirmation_v2%26utm_content%3Dbooking_summary_manage_booking_move_v3&adj_fallback=https%3A%2F%2Fwww.getyourguide.com%2Fbooking%2FS0QATK0D09T0GCIN6WKTQ1LK9FT9REW0%3Fpartner_id%3DHCIAOO8%26visitor_id%3D31F21BD46A634DC7915A2B7533D3E834%26utm_source%3Dgetyourguide%26utm_medium%3Demail_transactional%26utm_campaign%3Dshopping_cart_confirmation_v2%26utm_content%3Dbooking_summary_manage_booking_move_v3&adj_redirect=https%3A%2F%2Fwww.getyourguide.com%2Fbooking%2FS0QATK0D09T0GCIN6WKTQ1LK9FT9REW0%3Fpartner_id%3DHCIAOO8%26visitor_id%3D31F21BD46A634DC7915A2B7533D3E834%26utm_source%3Dgetyourguide%26utm_medium%3Demail_transactional%26utm_campaign%3Dshopping_cart_confirmation_v2%26utm_content%3Dbooking_summary_manage_booking_move_v3&visitor_id=31F21BD46A634DC7915A2B7533D3E834&utm_source=getyourguide&utm_medium=email_transactional&utm_campaign=shopping_cart_confirmation_v2&utm_content=booking_summary_manage_booking_move_v3',
+      text: 'Modify Pisa/Cinque Terre Booking'
+    }
+  },
+  { 
+    date: 'Aug 11', 
+    activity: 'Private Mosaic Lesson', 
     notes: '2-hour private lesson from 3:30 PM - 5:30 PM. Confirmation: GYG83X24KY5Q. Meet Maria Teresa.',
     address: 'Via Paolo VI, 27/29, 00193 Roma RM, Italy'
   },
   { 
     date: 'Aug 11', 
-    activity: 'Train to Florence', 
-    notes: 'Morning train to Florence (approx. 2 hours). Check into Florence Airbnb.',
+    activity: 'Train to Florence & Check-in', 
+    notes: 'Take an evening train to Florence after the mosaic class (approx. 2 hours). Check into Florence Airbnb.',
     address: 'Via del Parione, 13, 50123 Firenze FI, Italy',
     link: {
       url: 'https://www.airbnb.com/trips/v1/reservation-details/ro/RESERVATION2_CHECKIN/HMA4TWW3XW',
       text: 'View Florence Airbnb Booking'
     }
   },
-  { date: 'Aug 12-13', activity: 'Florence Exploration', notes: 'Explore Florence. Museums, architecture, food.' },
+  { 
+    date: 'Aug 12', 
+    activity: 'Pisa & Cinque Terre Day Tour', 
+    notes: 'Full-day small group tour starting at 7:30 AM from Santa Maria Novella station. A fast-paced trip to see the highlights of Pisa and the coastal villages. Booking Ref: GYG32MNN5GW5.',
+    address: 'Piazza della Stazione, 50123 Firenze FI, Italy',
+    link: {
+      url: '#/daytrip',
+      text: 'View Day Trip Details'
+    }
+  },
   { 
     date: 'Aug 14', 
     activity: 'Travel to Tuscany', 
@@ -52,11 +79,10 @@ export const schedule: ScheduleItem[] = [
       text: 'View Tuscany Farm Booking'
     }
   },
-  { date: 'Aug 15-16', activity: 'Tuscan Countryside', notes: 'Relax, explore San Gimignano. Day trip to Pisa & Cinque Terre.' },
   { 
     date: 'Aug 17', 
-    activity: 'Return to Rome', 
-    notes: 'Drive back to Rome, drop off car. Check into Hotel Sonya.',
+    activity: 'Train to Rome & Hotel Check-in', 
+    notes: 'Take the Italo train from Florence to Rome (11:28 AM - 1:40 PM). After arriving, check into Hotel Sonya.',
     address: 'Via Del Viminale 58, 00184 Rome, Italy',
     link: {
       url: 'https://www.google.com/search?q=https://www.booking.com/hotel/it/sonya.html%3Faid%3D304142%26label%3Dgen173nr-1FCA4oggI46AdIMVgEaIkCiAEBmAExuAEHyAEM2AEB6AEB-AEDiAIBqAIDuALmxN_BBsACAdICJDA0ODBiNmI0LWJkOTctNDY5My1iNTlkLTM1ZTNhYjRlODcwY9gCBeACAQ%26sid%3Dac7bb0cb214bd51dd4ed2277ba2dafc7%26dist%3D0%26sb_price_type%3Dtotal%26type%3Dtotal%26',
@@ -143,6 +169,9 @@ export const todoList: TodoItemType[] = [
     { id: 7, task: 'Book car', completed: true, assignees: ['Tessy'] },
     { id: 8, task: 'Get international drivers license', completed: true, assignees: ['Tessy'] },
     { id: 14, task: 'Plan departure date travel to airport', completed: true, assignees: ['Audrey', 'Grace', 'Tessy'] },
+    { id: 10, task: 'Book train ticket to Florence', completed: true, assignees: ['Tessy'] },
+    { id: 11, task: 'Book train ticket to Rome', completed: true, assignees: ['Tessy'] },
+    { id: 12, task: 'Book Pisa/Cinque Terre Tour', completed: true, assignees: ['Tessy'] },
 
     // Incomplete Tasks
     { 
@@ -165,8 +194,6 @@ export const todoList: TodoItemType[] = [
             text: 'Manage ITA Airways Booking'
         }
     },
-    { id: 10, task: 'Book train ticket to Florence', completed: false, assignees: ['Tessy'], dueDate: florenceTicketDueDate.toISOString() },
-    { id: 11, task: 'Book train ticket to Rome', completed: false, assignees: ['Tessy'] },
     { id: 15, task: 'Pack for the trip', completed: false, assignees: ['Audrey', 'Grace', 'Tessy'] },
 ];
 
@@ -182,5 +209,17 @@ export const trainBookings: TrainBooking[] = [
     coach: '4',
     class: 'Smart',
     departureMapUrl: 'https://maps.app.goo.gl/7Bn36y4CyydVPfNR6',
+  },
+  {
+    passenger: 'caitlyn stevensdietrich',
+    departure: 'Firenze SMN, Aug 17, 2025, 11:28 a.m.',
+    arrival: 'Roma Termini, Aug 17, 2025, 1:40 p.m.',
+    duration: '2h 12m',
+    confirmationNumber: 'ZI62VQ',
+    seats: '15, 16, 17',
+    coach: '8',
+    class: 'Smart',
+    departureMapUrl: 'https://maps.app.goo.gl/9Dgo4j3r8aN5fA889',
+    arrivalMapUrl: 'https://maps.app.goo.gl/7Bn36y4CyydVPfNR6',
   },
 ];

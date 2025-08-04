@@ -130,4 +130,34 @@ export interface TrainBooking {
   arrivalMapUrl?: string;
 }
 
+export interface DayTripDetails {
+  title: string;
+  date: string;
+  duration: string;
+  provider: string;
+  bookingRef: string;
+  pin: string;
+  participants: string;
+  language: string;
+  meetingPoint: {
+    address: string;
+    instructions: string;
+    time: string;
+    mapUrl: string;
+  };
+  endpoint: string;
+  importantInfo: {
+    bring: { item: string; icon: string }[];
+    notAllowed: { item: string; icon: string }[];
+    knowBeforeYouGo: string[];
+  };
+  itinerary: {
+    duration: string;
+    activity: string;
+    details: string;
+    transport?: 'Train' | 'Walk';
+  }[];
+}
+
+
 export type Currency = 'USD' | 'CAD' | 'EUR';

@@ -28,6 +28,7 @@ const Header: React.FC = () => {
         { path: '/', name: 'Home' },
         { path: '/schedule', name: 'Schedule' },
         { path: '/bookings', name: 'Bookings' },
+        { path: '/daytrip', name: 'Day Trip' },
         { path: '/trains', name: 'Trains' },
         { path: '/todo', name: 'To-Do' },
         { path: '/destinations', name: 'Guides' },
