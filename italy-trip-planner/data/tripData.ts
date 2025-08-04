@@ -130,7 +130,7 @@ export const accommodations: Accommodation[] = [
 ];
 
 const florenceTicketDueDate = new Date();
-florenceTicketDueDate.setHours(10, 0, 0, 0);
+florenceTicketDueDate.setHours(20, 0, 0, 0);
 
 export const todoList: TodoItemType[] = [
     // Completed Tasks
