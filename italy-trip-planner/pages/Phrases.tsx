@@ -12,11 +12,43 @@ const Phrases: React.FC = () => {
     const loadAndSetVoice = () => {
       if ('speechSynthesis' in window) {
         const voices = window.speechSynthesis.getVoices();
-        // Find the most suitable Italian voice by prioritizing voices that explicitly
-        // mention "Italian" in their name, then falling back to any 'it-IT' voice.
-        const voice = voices.find(v => v.lang === 'it-IT' && v.name.includes('Italian')) || voices.find(v => v.lang === 'it-IT');
-        if (voice) {
-          setItalianVoice(voice);
+        if (voices.length === 0) {
+            return; // Voices not loaded yet. The onvoiceschanged event will trigger this again.
+        }
+
+        const premiumVoiceNames = [
+          'Luca',           // Apple - premium
+          'Alice',          // Apple - standard, often good quality
+          'Microsoft Elsa - Italian (Italy)', // Windows
+          'Elsa',           // Windows
+          'Google italiano',// Google
+          'Federica',       // Apple
+        ];
+
+        const italianVoices = voices.filter(v => v.lang === 'it-IT');
+        let selectedVoice: SpeechSynthesisVoice | null = null;
+        
+        // 1. Look for premium/known voices by name in a specific order
+        for (const name of premiumVoiceNames) {
+            const foundVoice = italianVoices.find(v => v.name === name);
+            if (foundVoice) {
+                selectedVoice = foundVoice;
+                break;
+            }
+        }
+        
+        // 2. If no premium voice found, pick any non-local Italian voice
+        if (!selectedVoice) {
+            selectedVoice = italianVoices.find(v => !v.localService) || null;
+        }
+
+        // 3. As a final fallback, pick the first available Italian voice
+        if (!selectedVoice && italianVoices.length > 0) {
+            selectedVoice = italianVoices[0];
+        }
+
+        if (selectedVoice) {
+          setItalianVoice(selectedVoice);
         }
       }
     };
@@ -46,12 +78,14 @@ const Phrases: React.FC = () => {
 
   const speak = (text: string) => {
     if ('speechSynthesis' in window) {
-      // If the same phrase is clicked again, stop the speech.
-      if (speakingPhrase === text) {
+      // If the same phrase is clicked again while it's speaking, stop it.
+      if (window.speechSynthesis.speaking && speakingPhrase === text) {
         window.speechSynthesis.cancel();
+        setSpeakingPhrase(null); // Explicitly reset state
         return;
       }
-      // Cancel any ongoing speech before starting a new one.
+      
+      // Cancel any other ongoing speech before starting a new one.
       window.speechSynthesis.cancel();
       
       const utterance = new SpeechSynthesisUtterance(text);
