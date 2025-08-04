@@ -5,30 +5,67 @@ import { Icon } from '../components/Icon';
 
 const Phrases: React.FC = () => {
   const [speakingPhrase, setSpeakingPhrase] = useState<string | null>(null);
+  const [italianVoice, setItalianVoice] = useState<SpeechSynthesisVoice | null>(null);
+
+  // Effect to load voices and handle component lifecycle for speech synthesis
+  useEffect(() => {
+    const loadAndSetVoice = () => {
+      if ('speechSynthesis' in window) {
+        const voices = window.speechSynthesis.getVoices();
+        // Find the most suitable Italian voice by prioritizing voices that explicitly
+        // mention "Italian" in their name, then falling back to any 'it-IT' voice.
+        const voice = voices.find(v => v.lang === 'it-IT' && v.name.includes('Italian')) || voices.find(v => v.lang === 'it-IT');
+        if (voice) {
+          setItalianVoice(voice);
+        }
+      }
+    };
+
+    // Load voices immediately and add a listener for when they become available.
+    loadAndSetVoice();
+    if ('speechSynthesis' in window && typeof window.speechSynthesis.onvoiceschanged !== 'undefined') {
+      window.speechSynthesis.onvoiceschanged = loadAndSetVoice;
+    }
+    
+    // Cleanup function to cancel any speech when the component unmounts or the page is closed.
+    const handleBeforeUnload = () => {
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+        }
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.onvoiceschanged = null;
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
 
   const speak = (text: string) => {
     if ('speechSynthesis' in window) {
-      // If this phrase is already speaking, cancel it to stop.
+      // If the same phrase is clicked again, stop the speech.
       if (speakingPhrase === text) {
-          window.speechSynthesis.cancel();
-          return;
+        window.speechSynthesis.cancel();
+        return;
       }
-      
-      // Cancel any currently playing speech before starting a new one
+      // Cancel any ongoing speech before starting a new one.
       window.speechSynthesis.cancel();
       
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'it-IT';
-      utterance.rate = 0.9; // A bit slower for clarity
-
-      utterance.onstart = () => {
-        setSpeakingPhrase(text);
-      };
-
-      utterance.onend = () => {
-        setSpeakingPhrase(null);
-      };
       
+      // Explicitly set the Italian voice if it was found.
+      if (italianVoice) {
+        utterance.voice = italianVoice;
+      }
+      
+      utterance.lang = 'it-IT'; // Set language as a fallback.
+      utterance.rate = 0.9; // A touch slower for better clarity.
+
+      utterance.onstart = () => setSpeakingPhrase(text);
+      utterance.onend = () => setSpeakingPhrase(null);
       utterance.onerror = (event) => {
         console.error("Speech synthesis error:", event.error);
         setSpeakingPhrase(null);
@@ -39,23 +76,6 @@ const Phrases: React.FC = () => {
       alert("Sorry, your browser doesn't support text-to-speech.");
     }
   };
-
-  // Add a cleanup effect to cancel speech if the component unmounts
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.cancel();
-        }
-    };
-    
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-      handleBeforeUnload(); // Also cancel on component unmount
-    };
-  }, []);
-
 
   return (
     <div className="max-w-4xl mx-auto">
