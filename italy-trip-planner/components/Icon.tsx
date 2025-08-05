@@ -231,6 +231,18 @@ export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
               <line x1="12" y1="8" x2="12.01" y2="8"></line>
             </svg>
         );
+    case 'utensils':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3z"></path></svg>
+      );
+    case 'taxi':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M10 17h4"></path><path d="M3 12h18"></path><path d="M5 12v-6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6"></path><path d="M3 17h1"></path><path d="M20 17h1"></path><path d="M6 17a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path><path d="M18 17a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg>
+      );
+    case 'credit-card':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" {...props}><rect x="1" y="4" width="22" height="16" rx="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+      );
     default:
       return null;
   }
