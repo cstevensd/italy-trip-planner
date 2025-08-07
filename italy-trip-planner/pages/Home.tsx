@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from '../components/Icon';
@@ -5,7 +6,7 @@ import PrintableContent from '../components/PrintableContent';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import Countdown from '../components/Countdown';
-import { schedule, todoList } from '../data/tripData';
+import { schedule } from '../data/tripData';
 
 
 const QuickLink: React.FC<{ to: string, title: string, description: string, icon: string }> = ({ to, title, description, icon }) => (
@@ -92,7 +93,7 @@ const Home: React.FC = () => {
             </div>
         </div>
 
-      <Countdown schedule={schedule} todoList={todoList} />
+      <Countdown schedule={schedule} />
 
       <div>
         <h2 className="text-3xl font-bold text-brand-primary mb-6 text-center lg:text-left">Trip Dashboard</h2>
